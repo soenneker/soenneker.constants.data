@@ -8,5 +8,5 @@
 ## Installation
 
 ```
-Install-Package Soenneker.Constants.Data
+dotnet add package Soenneker.Constants.Data
 ```
