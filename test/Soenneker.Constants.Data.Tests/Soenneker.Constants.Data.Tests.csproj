@@ -20,7 +20,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\src\Soenneker.Constants.Data.csproj" />
+        <ProjectReference Include="..\..\src\Soenneker.Constants.Data.csproj" />
     </ItemGroup>
 
 </Project>
