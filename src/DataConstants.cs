@@ -1,8 +1,11 @@
-﻿namespace Soenneker.Constants.Data;
+﻿using Soenneker.Attributes.PublicOpenApiObject;
+
+namespace Soenneker.Constants.Data;
 
 /// <summary>
 /// A set of commonly used constants related to various types of data
 /// </summary>
+[PublicOpenApiObject]
 public static class DataConstants
 {
     public const int Url = 2000;
