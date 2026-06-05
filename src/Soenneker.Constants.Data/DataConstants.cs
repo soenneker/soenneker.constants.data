@@ -8,7 +8,13 @@ namespace Soenneker.Constants.Data;
 [PublicOpenApiObject]
 public static class DataConstants
 {
+    /// <summary>
+    /// The url.
+    /// </summary>
     public const int Url = 2000;
+    /// <summary>
+    /// The name.
+    /// </summary>
     public const int Name = 255;
         
     /// <summary>
