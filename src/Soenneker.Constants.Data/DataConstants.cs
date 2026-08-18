@@ -3,22 +3,22 @@
 namespace Soenneker.Constants.Data;
 
 /// <summary>
-/// A set of commonly used constants related to various types of data
+/// Defines shared validation and paging limits used by public data contracts.
 /// </summary>
 [PublicOpenApiObject]
 public static class DataConstants
 {
     /// <summary>
-    /// The url.
+    /// Maximum supported length, in characters, for a URL value.
     /// </summary>
     public const int Url = 2000;
     /// <summary>
-    /// The name.
+    /// Maximum supported length, in characters, for a human-readable name.
     /// </summary>
     public const int Name = 255;
         
     /// <summary>
-    /// Cosmos default is 100. -1 is commonly used to specify unlimited size of page.
+    /// Default number of records requested per page from Cosmos DB. A page size of <c>-1</c> is commonly used to request an unlimited page.
     /// </summary>
     public const int DefaultCosmosPageSize = 500;
 }
