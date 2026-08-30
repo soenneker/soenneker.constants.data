@@ -5,7 +5,7 @@
 
 # Soenneker.Constants.Data
 
-Defines shared validation and paging limits used by public data contracts.
+Provides shared string-length limits and the default Cosmos DB page size used across Soenneker data contracts.
 
 ## Install
 
@@ -13,14 +13,30 @@ Defines shared validation and paging limits used by public data contracts.
 dotnet add package Soenneker.Constants.Data
 ```
 
-## What you get
+## Values
 
-- `DataConstants` — Defines shared validation and paging limits used by public data contracts.
+| Constant | Value | Intended use |
+| --- | ---: | --- |
+| `DataConstants.Url` | `2000` | Maximum character count for URL fields |
+| `DataConstants.Name` | `255` | Maximum character count for human-readable names |
+| `DataConstants.DefaultCosmosPageSize` | `500` | Default item count requested by Soenneker Cosmos paging APIs |
 
-## API at a glance
+## Usage
 
-| API | What it does | Result / important behavior |
-| --- | --- | --- |
-| `DataConstants.Url` | Maximum supported length, in characters, for a URL value. | Maximum supported length, in characters, for a URL value. |
-| `DataConstants.Name` | Maximum supported length, in characters, for a human-readable name. | Maximum supported length, in characters, for a human-readable name. |
-| `DataConstants.DefaultCosmosPageSize` | Default number of records requested per page from Cosmos DB. A page size of `-1` is commonly used to request an unlimited page. | Default number of records requested per page from Cosmos DB. A page size of `-1` is commonly used to request an unlimited page. |
+```csharp
+using System.ComponentModel.DataAnnotations;
+using Soenneker.Constants.Data;
+
+public sealed class CreateLinkRequest
+{
+    [StringLength(DataConstants.Name)]
+    public required string Name { get; init; }
+
+    [StringLength(DataConstants.Url)]
+    public required string Url { get; init; }
+}
+```
+
+These are compile-time constants, so their numeric values are embedded into consuming assemblies. Rebuild consumers after upgrading if a constant changes.
+
+`DefaultCosmosPageSize` is a library convention, not a Cosmos DB service limit. Override it when request-unit cost, response size, or latency requires a different page size.

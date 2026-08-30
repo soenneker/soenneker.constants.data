@@ -18,7 +18,7 @@ public static class DataConstants
     public const int Name = 255;
         
     /// <summary>
-    /// Default number of records requested per page from Cosmos DB. A page size of <c>-1</c> is commonly used to request an unlimited page.
+    /// Default number of records requested per page by Soenneker Cosmos repository APIs.
     /// </summary>
     public const int DefaultCosmosPageSize = 500;
 }
